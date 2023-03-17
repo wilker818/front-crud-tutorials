@@ -32,6 +32,15 @@
               <span>Click to edit</span>
             </li>
           </ul>
+
+          <ul class="cni-tutorials__list-tutorials-box" *ngIf="loadingItem">
+            <li
+              class="cni-tutorials__list-tutorials-box-item d-flex justify-content-between cni-pointer"
+            >
+              Loding...
+            </li>
+          </ul>
+
           <button
             class="cni-tutorials__button-remove"
             (click)="removeAllTutorials()"
