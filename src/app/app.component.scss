@@ -1,0 +1,40 @@
+@import "../assets/scss/theme.scss";
+@import "../assets/scss/variables.scss";
+@import "../assets/scss/mixins.scss";
+
+.cni-navbar {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $navbar--background;
+  backdrop-filter: blur(8px);
+  width: 100%;
+  height: $navbar-height;
+  padding: $padding-spacing-default;
+
+  z-index: $zindex-fixed;
+
+  &__logo {
+    width: 150px;
+    height: 50px;
+
+  }
+
+  &__menu {
+    display: flex;
+
+    a {
+      color: #fff;
+
+    }
+
+  }
+
+}
+
+.cni-router{
+ margin-top: 66px;
+}
