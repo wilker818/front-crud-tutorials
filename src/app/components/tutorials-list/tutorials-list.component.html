@@ -1,0 +1,49 @@
+<div class="cni-tutorials">
+  <div>
+    <div class="cni-tutorials__search">
+      <div>
+        <button class="btn" (click)="searchTitle()">
+          <i class="bi bi-search text-dark"></i>
+        </button>
+      </div>
+      <div class="cni-tutorials__search-input">
+        <input
+          type="text"
+          placeholder="Search by title"
+          (keyup.enter)="searchTitle()"
+          [(ngModel)]="title"
+        />
+      </div>
+    </div>
+
+    <div>
+      <div class="cni-tutorials__list">
+        <div class="cni-tutorials__list-tutorials">
+          <h4>Tutorials List</h4>
+          <ul class="list-group">
+            <li
+              class="list-group-item"
+              *ngFor="let tutorial of tutorials; let i = index"
+              [class.active]="i == currentIndex"
+              (click)="setActiveTutorial(tutorial, i)"
+            >
+              {{ tutorial.title }}
+            </li>
+          </ul>
+          <button
+            class="cni-tutorials__button-remove"
+            (click)="removeAllTutorials()"
+          >
+            Remove All
+          </button>
+        </div>
+        <div class="cni-tutorials__list-tutorials-details">
+          <app-tutorial-details
+            [viewMode]="true"
+            [currentTutorial]="currentTutorial"
+          ></app-tutorial-details>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

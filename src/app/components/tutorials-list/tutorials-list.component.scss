@@ -1,0 +1,81 @@
+@import "../../../assets/scss/theme.scss";
+@import "../../../assets/scss/variables.scss";
+@import "../../../assets/scss/mixins.scss";
+
+.cni-tutorials {
+  position: relative;
+
+  padding-top: 4vh;
+
+  &__search {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 12px;
+
+    margin-bottom: $margin-bottom--3;
+
+    @include for-phone-only {}
+
+    &-input {
+      width: 100%;
+
+      input {
+        border: none;
+
+        width: 100%;
+        font-size: 20px;
+        border-radius: 12px;
+
+        &:focus-visible {
+          outline: none;
+        }
+
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+
+    @include for-phone-only {
+      flex-direction: column;
+    }
+
+    &-tutorials {
+      width: 50%;
+
+      margin-right: 2vw;
+
+      @include for-phone-only {
+        width: 100%;
+        margin-bottom: $margin-bottom--2;
+      }
+    }
+
+    &-tutorials-details {
+      width: 50%;
+
+      @include for-phone-only {
+        width: 100%;
+        margin-bottom: $margin-bottom--2;
+      }
+    }
+  }
+
+
+  &__button-remove {
+    @include button-primary($gradient--background-10, #F42B2B);
+
+    font-weight: 700;
+    font-size: 20px;
+
+    padding: 8px 16px;
+    margin-top: $margin-top--2;
+  }
+
+}
