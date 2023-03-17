@@ -9,7 +9,7 @@ import { TutorialService } from 'src/app/services/tutorial.service';
 })
 export class TutorialsListComponent implements OnInit {
   tutorials?: Tutorial[];
-  loadingItem = true;
+  loadingItem = false;
   currentTutorial: Tutorial = {};
   currentIndex = -1;
   title = '';
@@ -22,6 +22,7 @@ export class TutorialsListComponent implements OnInit {
 
   async retrieveTutorials(): Promise<void> {
     try {
+      this.loadingItem = true;
       const data = await this.tutorialService.getAll();
       this.tutorials = data;
       this.loadingItem = false;
