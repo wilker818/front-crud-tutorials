@@ -138,10 +138,10 @@
   </div>
 
   <div
-    *ngIf="!currentTutorial.id || !currentTutorial.title"
+    *ngIf="!currentTutorial.id && !loadingCurrentEdit"
     class="w-100 d-flex flex-column align-items-center"
   >
-    <br />
+  <br />
     <h4>Sorry we don't have this tutorial available yet :(</h4>
   </div>
 </ng-template>
