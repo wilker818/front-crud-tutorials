@@ -1,0 +1,32 @@
+@import "../../../assets/scss/theme.scss";
+@import "../../../assets/scss/variables.scss";
+@import "../../../assets/scss/mixins.scss";
+
+.cni-tutorials-add {
+  position: relative;
+
+  padding-top: 4vh;
+
+
+  &__button-submit {
+    @include button-primary($gradient--background-4, #009874, $shadow: 0px 1px 15px rgba(0, 152, 116, 0.6));
+
+    font-weight: 700;
+    font-size: 20px;
+
+    padding: 8px 16px;
+
+    margin-top: $margin-top--2;
+  }
+
+  &__button-add-new-tutorial {
+    @include button-primary($gradient--background-4, #009874, $shadow: 0px 1px 15px rgba(0, 152, 116, 0.6));
+
+    font-weight: 700;
+    font-size: 20px;
+
+    padding: 8px 16px;
+
+    margin-top: $margin-top--2;
+  }
+}
