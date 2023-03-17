@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'cni-crud'`, () => {
+  it(`should have as title 'front-crud-tutorials'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('cni-crud');
+    expect(app.title).toEqual('front-crud-tutorials');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('cni-crud app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('front-crud-tutorials app is running!');
   });
 });

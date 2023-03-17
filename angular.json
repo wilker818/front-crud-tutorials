@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cni-crud": {
+    "front-crud-tutorials": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cni-crud",
+            "outputPath": "dist/front-crud-tutorials",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "cni-crud:build:production"
+              "browserTarget": "front-crud-tutorials:build:production"
             },
             "development": {
-              "browserTarget": "cni-crud:build:development"
+              "browserTarget": "front-crud-tutorials:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cni-crud:build"
+            "browserTarget": "front-crud-tutorials:build"
           }
         },
         "test": {
