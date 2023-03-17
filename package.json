@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "dev": "ng serve",
+    "dev": "ng serve --port 8080",
     "start": "node server.js",
     "build": "ng build",
     "heroku-postbuild": "ng build --prod",
@@ -12,7 +12,7 @@
   },
   "engines": {
     "node": "v16.16.0",
-    "npm": "8.19.3"
+    "npm": "8.11.0"
   },
   "private": true,
   "dependencies": {
