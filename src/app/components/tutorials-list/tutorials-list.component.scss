@@ -40,6 +40,7 @@
   }
 
   &__list {
+    position: relative;
     display: flex;
 
     @include for-phone-only {
@@ -55,9 +56,32 @@
         width: 100%;
         margin-bottom: $margin-bottom--2;
       }
+
+      &-box {
+        position: relative;
+        padding: 0;
+        margin: 0;
+
+        &-item {
+          display: flex;
+          justify-content: space-between;
+          cursor: pointer;
+
+          background-color: #fff;
+          border-radius: 8px;
+
+          padding: 8px 16px;
+          margin-bottom: $margin-bottom--1;
+        }
+      }
+
     }
 
     &-tutorials-details {
+      position: sticky;
+  position: -webkit-sticky;
+  top: 76px;
+  height: 100%;
       width: 50%;
 
       @include for-phone-only {

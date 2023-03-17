@@ -20,14 +20,16 @@
       <div class="cni-tutorials__list">
         <div class="cni-tutorials__list-tutorials">
           <h4>Tutorials List</h4>
-          <ul class="list-group">
+          <ul class="cni-tutorials__list-tutorials-box">
             <li
-              class="list-group-item"
+              class="cni-tutorials__list-tutorials-box-item d-flex justify-content-between cni-pointer"
               *ngFor="let tutorial of tutorials; let i = index"
               [class.active]="i == currentIndex"
               (click)="setActiveTutorial(tutorial, i)"
             >
               {{ tutorial.title }}
+
+              <span>Click to edit</span>
             </li>
           </ul>
           <button
