@@ -38,7 +38,6 @@ export class TutorialDetailsComponent implements OnInit {
       this.loadingCurrentEdit = true;
       const data = await this.tutorialService.get(id);
       if (data) {
-        // Verificando se 'data' não é 'undefined'
         this.currentTutorial = data;
       }
       this.loadingCurrentEdit = false;
@@ -90,8 +89,7 @@ export class TutorialDetailsComponent implements OnInit {
 
   async deleteTutorial(): Promise<void> {
     try {
-      const res = await this.tutorialService.delete(this.currentTutorial.id);
-
+      await this.tutorialService.delete(this.currentTutorial.id);
       this.router.navigate(['/tutorials']);
     } catch (e) {
       console.error(e);
