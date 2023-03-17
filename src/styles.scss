@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  background: radial-gradient(50% 100% at 100% 150%,
+      rgba(22, 74, 87, 0.50),
+      transparent 100%),
+    radial-gradient(50% 100% at 25% -20%,
+      rgba(22, 74, 87, 0.50),
+      transparent 100%),
+    linear-gradient(#c0c0c0 50%, #c0c0c0 50%);
+  color: #fff;
+  min-height: 100vh;
+}
