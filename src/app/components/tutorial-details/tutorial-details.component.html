@@ -1,0 +1,99 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentTutorial.id" class="cni-tutorials-details">
+    <div class="cni-tutorials-details__list">
+      <h4>Tutorial Details</h4>
+      <div>
+        <label><strong>Title:</strong></label> {{ currentTutorial.title }}
+      </div>
+      <div>
+        <label><strong>Description:</strong></label>
+        {{ currentTutorial.description }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentTutorial.published ? "Published" : "Pending" }}
+      </div>
+    </div>
+    <a
+      class="cni-tutorials-details__button-edit"
+      routerLink="/tutorials/{{ currentTutorial.id }}"
+    >
+      Edit
+    </a>
+  </div>
+
+  <div *ngIf="!currentTutorial">
+    <br />
+    <p>Please click on a Tutorial...</p>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentTutorial.id" class="cni-tutorials-edit">
+    <h4>Tutorial</h4>
+    <form class="cni-tutorials-edit__form">
+      <div class="form-group mb-3">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentTutorial.title"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentTutorial.description"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentTutorial.published ? "Published" : "Pending" }}
+      </div>
+    </form>
+    <div class="cni-tutorials-edit__buttons">
+      <button
+        class="cni-tutorials-edit__button-edit-publish"
+        *ngIf="currentTutorial.published"
+        (click)="updatePublished(false)"
+      >
+        UnPublish
+      </button>
+      <button
+        *ngIf="!currentTutorial.published"
+        class="cni-tutorials-edit__button-edit-publish"
+        (click)="updatePublished(true)"
+      >
+        Publish
+      </button>
+
+      <button
+        class="cni-tutorials-edit__button-delete"
+        (click)="deleteTutorial()"
+      >
+        Delete
+      </button>
+
+      <button
+        type="submit"
+        class="cni-tutorials-edit__button-update"
+        (click)="updateTutorial()"
+      >
+        Update
+      </button>
+    </div>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentTutorial.id">
+    <br />
+    <p>Sorry we don't have this tutorial available yet :(</p>
+  </div>
+</ng-template>

@@ -1,0 +1,64 @@
+@import "../../../assets/scss/theme.scss";
+@import "../../../assets/scss/variables.scss";
+@import "../../../assets/scss/mixins.scss";
+
+.cni-tutorials-details {
+
+  &__list {
+    display: block;
+
+    margin-bottom: $margin-bottom--2;
+  }
+
+  &__button-edit {
+    @include button-primary($gradient--background-4, #009874, $shadow: 0px 1px 15px rgba(0, 152, 116, 0.6));
+
+    font-weight: 700;
+    font-size: 20px;
+
+    padding: 8px 16px;
+
+
+  }
+}
+
+.cni-tutorials-edit {
+
+  &__form {
+    margin-bottom: $margin-bottom--3;
+  }
+
+
+  &__button-edit-publish {
+    @include button-primary($gradient--background-8, rgba(83, 130, 250, 0.741), $shadow: 0px 1px 15px rgba(83, 130, 250, 0.741));
+
+    font-weight: 700;
+    font-size: 20px;
+
+    padding: 8px 16px;
+
+    margin-right: 2vw;
+  }
+
+  &__button-delete {
+    @include button-primary($gradient--background-10, #F42B2B);
+
+    font-weight: 700;
+    font-size: 20px;
+
+    padding: 8px 16px;
+    margin-right: 2vw;
+  }
+
+  &__button-update {
+    @include button-primary($gradient--background-4, #009874, $shadow: 0px 1px 15px rgba(0, 152, 116, 0.6));
+
+    font-weight: 700;
+    font-size: 20px;
+
+    padding: 8px 16px;
+
+    /* margin-top: $margin-top--2; */
+  }
+
+}
