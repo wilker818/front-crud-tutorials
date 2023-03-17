@@ -22,7 +22,7 @@
           <h4>Tutorials List</h4>
           <ul class="cni-tutorials__list-tutorials-box">
             <li
-              class="cni-tutorials__list-tutorials-box-item d-flex justify-content-between cni-pointer"
+              class="cni-tutorials__list-tutorials-box-item"
               *ngFor="let tutorial of tutorials; let i = index"
               [class.active]="i == currentIndex"
               (click)="setActiveTutorial(tutorial, i)"
@@ -35,7 +35,7 @@
 
           <ul class="cni-tutorials__list-tutorials-box" *ngIf="loadingItem">
             <li
-              class="cni-tutorials__list-tutorials-box-item d-flex justify-content-between cni-pointer"
+              class="cni-tutorials__list-tutorials-box-item"
             >
               Loding...
             </li>
