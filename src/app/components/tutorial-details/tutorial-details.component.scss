@@ -3,7 +3,7 @@
 @import "../../../assets/scss/mixins.scss";
 
 .cni-tutorials-details {
-  &__list {
+    &__list {
     display: block;
 
     margin-bottom: $margin-bottom--2;
@@ -57,8 +57,6 @@
     font-size: 20px;
 
     padding: 8px 16px;
-
-    /* margin-top: $margin-top--2; */
   }
 
 }
