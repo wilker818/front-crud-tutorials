@@ -1,9 +1,8 @@
-@import "../../../assets/scss/theme.scss";
 @import "../../../assets/scss/variables.scss";
 @import "../../../assets/scss/mixins.scss";
 
 .cni-tutorials-details {
-    &__list {
+  &__list {
     display: block;
 
     margin-bottom: $margin-bottom--2;
@@ -16,8 +15,6 @@
     font-size: 20px;
 
     padding: 8px 16px;
-
-
   }
 }
 
@@ -27,7 +24,6 @@
   &__form {
     margin-bottom: $margin-bottom--3;
   }
-
 
   &__button-edit-publish {
     @include button-primary($gradient--background-8, rgba(83, 130, 250, 0.741), $shadow: 0px 1px 15px rgba(83, 130, 250, 0.741));
@@ -58,5 +54,4 @@
 
     padding: 8px 16px;
   }
-
 }

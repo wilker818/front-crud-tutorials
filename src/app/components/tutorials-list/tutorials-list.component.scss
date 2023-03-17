@@ -1,4 +1,3 @@
-@import "../../../assets/scss/theme.scss";
 @import "../../../assets/scss/variables.scss";
 @import "../../../assets/scss/mixins.scss";
 
@@ -34,7 +33,6 @@
         &:focus-visible {
           outline: none;
         }
-
       }
     }
   }
@@ -74,14 +72,12 @@
           margin-bottom: $margin-bottom--1;
         }
       }
-
     }
 
     &-tutorials-details {
       position: sticky;
-  position: -webkit-sticky;
-  top: 76px;
-  height: 100%;
+      top: 76px;
+      height: 100%;
       width: 50%;
 
       @include for-phone-only {
@@ -90,7 +86,6 @@
       }
     }
   }
-
 
   &__button-remove {
     @include button-primary($gradient--background-10, #F42B2B);
@@ -101,5 +96,4 @@
     padding: 8px 16px;
     margin-top: $margin-top--2;
   }
-
 }
