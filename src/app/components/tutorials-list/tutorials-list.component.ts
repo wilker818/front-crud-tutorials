@@ -8,7 +8,7 @@ import { TutorialService } from 'src/app/services/tutorial.service';
   styleUrls: ['./tutorials-list.component.scss'],
 })
 export class TutorialsListComponent implements OnInit {
-  tutorials?: Tutorial[];
+  tutorials: Tutorial[] = [];
   loadingItem = false;
   currentTutorial: Tutorial = {};
   currentIndex = -1;
@@ -51,6 +51,7 @@ export class TutorialsListComponent implements OnInit {
       console.error(e);
     }
   }
+
   async searchTitle(): Promise<void> {
     try {
       this.currentTutorial = {};
