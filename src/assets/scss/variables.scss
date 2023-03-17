@@ -1,0 +1,60 @@
+$navbar-height: 66px;
+$navbar-button-height: 42px;
+$navbar-button-width: 42px;
+$sidebar-height: 66px;
+
+$-border-radius: 12px;
+
+/* ====== Fonts ====== */
+$font-icon: 24px;
+$font-icon--md: 18px;
+$font-icon--sm: 12px;
+
+$font-button: 24px;
+$font-button--md: 20px;
+$font-button--sm: 16px;
+
+/* ====== Paddings ====== */
+$padding-spacing-default: 0 16px;
+
+/* ====== Margins ====== */
+$margin-top--1: 2vh;
+$margin-top--2: 3vh;
+$margin-top--3: 4vh;
+$margin-top--4: 5vh;
+$margin-top--5: 6vh;
+$margin-top--6: 7vh;
+$margin-top--7: 8vh;
+$margin-top--8: 9vh;
+$margin-top--9: 10vh;
+$margin-top--10: 12vh;
+
+$margin-bottom--1: 2vh;
+$margin-bottom--2: 3vh;
+$margin-bottom--3: 4vh;
+$margin-bottom--4: 5vh;
+$margin-bottom--5: 6vh;
+$margin-bottom--6: 7vh;
+$margin-bottom--7: 8vh;
+$margin-bottom--8: 9vh;
+$margin-bottom--9: 10vh;
+$margin-bottom--10: 12vh;
+
+/* ====== Transition ====== */
+$tran-03: all 0.2s ease;
+$tran-03: all 0.3s ease;
+$tran-04: all 0.3s ease;
+$tran-05: all 0.3s ease;
+
+
+/* ====== Z-index ====== */
+$zindex-dropdown:                   1000;
+$zindex-sticky:                     1020;
+$zindex-fixed:                      1030;
+$zindex-offcanvas-backdrop:         1040;
+$zindex-offcanvas:                  1045;
+$zindex-modal-backdrop:             1050;
+$zindex-modal:                      1055;
+$zindex-popover:                    1070;
+$zindex-tooltip:                    1080;
+$zindex-toast:                      1090;

@@ -1,0 +1,141 @@
+@mixin button-primary($backgroundPrimary: linear-gradient(132.25deg,
+        #f26419 -5.29%,
+        #f95e42 51.72%,
+        #ff5964 100%),
+    $colorPrimary: #f95e42,
+    $colorSecundary: #fff,
+    $shadow: 0px 1px 15px rgba(252, 91, 84, 0.6)) {
+    background: $backgroundPrimary;
+    color: $colorSecundary;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border: 2px solid $colorPrimary;
+    text-decoration: none;
+    border-radius: 12px;
+
+    &:hover {
+        background: rgba(111, 111, 111, 0.2);
+        box-shadow: $shadow;
+
+        color: $colorPrimary;
+    }
+
+    &:focus-visible {
+        border: 2px solid $colorSecundary;
+        outline: $colorSecundary;
+        border-radius: 16px;
+    }
+
+    &:active {
+        background: rgba(111, 111, 111, 0.2);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15),
+            inset 0px 8px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    &--loading {
+        background: $backgroundPrimary;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+        &:hover {
+            background: $backgroundPrimary;
+            box-shadow: $shadow;
+        }
+    }
+
+    &--disable {
+        background: rgba(111, 111, 111, 0.2);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+}
+
+@mixin button-secundary ($backgroundPrimary: linear-gradient(132.25deg,
+        #f26419 -5.29%,
+        #f95e42 51.72%,
+        #ff5964 100%),
+    $colorPrimary: #f95e42,
+    $colorSecundary: #fff) {
+
+    background: transparent;
+    color: $colorSecundary;
+    border: 2px solid $colorSecundary;
+    border-radius: 12px;
+
+    &:hover {
+        background: transparent;
+        color: $colorPrimary;
+        border: 2px solid $colorPrimary;
+    }
+
+    &:focus-visible {
+        border: 2px solid $colorSecundary;
+        outline: $colorSecundary;
+        border-radius: 16px;
+    }
+
+    &:active {
+        background: $backgroundPrimary;
+        color: $colorSecundary !important;
+        border: 2px solid $colorPrimary;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15),
+            inset 0px 8px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    &--loading {
+        border: 2px solid $colorPrimary;
+
+        &:hover {
+            background: transparent;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+                0px 1px 15px $colorPrimary;
+        }
+    }
+
+    &--disable {
+        background: transparent;
+        color: #494f54;
+        border-color: 2px solid #494f54;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+}
+
+@mixin button-tertiary($colorPrimary: #fff, $colorHover: #f95e42, $colorActive: #c84b38) {
+    background: transparent;
+    border: none;
+    color: colorPrimary;
+
+    &:hover {
+        color: $colorHover;
+        text-decoration: underline;
+    }
+
+    &:focus-visible {
+        border: 2px solid colorPrimary;
+        outline: colorPrimary;
+        border-radius: 16px;
+
+        &:hover {
+            color: colorPrimary;
+        }
+    }
+
+    &:active {
+        color: $colorActive;
+        text-decoration: underline;
+    }
+
+    &--loading {
+        background: transparent;
+        border: none;
+        text-decoration: none;
+
+        &:hover {
+            color: colorPrimary;
+        }
+    }
+
+    &--disable {
+        background: transparent;
+        border: none;
+        text-decoration: none;
+        color: #494f54;
+    }
+}
