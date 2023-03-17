@@ -20,17 +20,15 @@ export class TutorialsListComponent implements OnInit {
     this.retrieveTutorials();
   }
 
-  retrieveTutorials(): void {
-    this.tutorialService.getAll().subscribe({
-      next: (data) => {
-        this.tutorials = data;
-        this.loadingItem = false;
-      },
-      error: (e) => {
-        this.loadingItem = false;
-        console.error(e)
-      },
-    });
+  async retrieveTutorials(): Promise<void> {
+    try {
+      const data = await this.tutorialService.getAll();
+      this.tutorials = data;
+      this.loadingItem = false;
+    } catch (e) {
+      this.loadingItem = false;
+      console.error(e);
+    }
   }
 
   refreshList(): void {
@@ -44,24 +42,21 @@ export class TutorialsListComponent implements OnInit {
     this.currentIndex = index;
   }
 
-  removeAllTutorials(): void {
-    this.tutorialService.deleteAll().subscribe({
-      next: (res) => {
-        this.refreshList();
-      },
-      error: (e) => console.error(e),
-    });
+  async removeAllTutorials(): Promise<void> {
+    try {
+      await this.tutorialService.deleteAll();
+      this.refreshList();
+    } catch (e) {
+      console.error(e);
+    }
   }
-
-  searchTitle(): void {
-    this.currentTutorial = {};
-    this.currentIndex = -1;
-
-    this.tutorialService.findByTitle(this.title).subscribe({
-      next: (data) => {
-        this.tutorials = data;
-      },
-      error: (e) => console.error(e),
-    });
+  async searchTitle(): Promise<void> {
+    try {
+      this.currentTutorial = {};
+      this.currentIndex = -1;
+      this.tutorials = await this.tutorialService.findByTitle(this.title);
+    } catch (e) {
+      console.error(e);
+    }
   }
 }

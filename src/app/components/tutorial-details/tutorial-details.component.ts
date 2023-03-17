@@ -17,7 +17,7 @@ export class TutorialDetailsComponent implements OnInit {
     published: false,
   };
 
-  loadingCurrentEdit = true;
+  loadingCurrentEdit = false;
   message = '';
 
   constructor(
@@ -33,20 +33,22 @@ export class TutorialDetailsComponent implements OnInit {
     }
   }
 
-  getTutorial(id: string): void {
-    this.tutorialService.get(id).subscribe({
-      next: (data) => {
+  async getTutorial(id: string): Promise<void> {
+    try {
+      this.loadingCurrentEdit = true;
+      const data = await this.tutorialService.get(id);
+      if (data) {
+        // Verificando se 'data' não é 'undefined'
         this.currentTutorial = data;
-        this.loadingCurrentEdit = false;
-      },
-      error: (e) => {
-        this.loadingCurrentEdit = false;
-        console.error(e);
-      },
-    });
+      }
+      this.loadingCurrentEdit = false;
+    } catch (e) {
+      this.loadingCurrentEdit = false;
+      console.error(e);
+    }
   }
 
-  updatePublished(status: boolean): void {
+  async updatePublished(status: boolean): Promise<void> {
     const data = {
       title: this.currentTutorial.title,
       description: this.currentTutorial.description,
@@ -55,38 +57,44 @@ export class TutorialDetailsComponent implements OnInit {
 
     this.message = '';
 
-    this.tutorialService.update(this.currentTutorial.id, data).subscribe({
-      next: (res) => {
-        this.currentTutorial.published = status;
-        this.message = res.message
-          ? res.message
-          : 'The status was updated successfully!';
-      },
-      error: (e) => console.error(e),
-    });
+    try {
+      const res = await this.tutorialService.update(
+        this.currentTutorial.id,
+        data
+      );
+      this.currentTutorial.published = status;
+      this.message = res.message
+        ? res.message
+        : 'The status was updated successfully!';
+    } catch (e) {
+      console.error(e);
+    }
   }
 
-  updateTutorial(): void {
+  async updateTutorial(): Promise<void> {
     this.message = '';
 
-    this.tutorialService
-      .update(this.currentTutorial.id, this.currentTutorial)
-      .subscribe({
-        next: (res) => {
-          this.message = res.message
-            ? res.message
-            : 'This tutorial was updated successfully!';
-        },
-        error: (e) => console.error(e),
-      });
+    try {
+      const res = await this.tutorialService.update(
+        this.currentTutorial.id,
+        this.currentTutorial
+      );
+
+      this.message = res.message
+        ? res.message
+        : 'This tutorial was updated successfully!';
+    } catch (e) {
+      console.error(e);
+    }
   }
 
-  deleteTutorial(): void {
-    this.tutorialService.delete(this.currentTutorial.id).subscribe({
-      next: (res) => {
-        this.router.navigate(['/tutorials']);
-      },
-      error: (e) => console.error(e),
-    });
+  async deleteTutorial(): Promise<void> {
+    try {
+      const res = await this.tutorialService.delete(this.currentTutorial.id);
+
+      this.router.navigate(['/tutorials']);
+    } catch (e) {
+      console.error(e);
+    }
   }
 }

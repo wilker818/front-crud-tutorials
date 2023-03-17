@@ -137,8 +137,11 @@
     <p>{{ message }}</p>
   </div>
 
-  <div *ngIf="!currentTutorial.id && !loadingCurrentEdit">
+  <div
+    *ngIf="!currentTutorial.id || !currentTutorial.title"
+    class="w-100 d-flex flex-column align-items-center"
+  >
     <br />
-    <p>Sorry we don't have this tutorial available yet :(</p>
+    <h4>Sorry we don't have this tutorial available yet :(</h4>
   </div>
 </ng-template>

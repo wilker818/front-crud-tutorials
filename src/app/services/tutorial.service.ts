@@ -1,42 +1,50 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import axios from 'axios';
+
 import { Tutorial } from '../models/tutorial.model';
 
-//api
-const baseUrl = 'https://node-tutorials-api.herokuapp.com';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class TutorialService {
-  constructor(private http: HttpClient) {}
+  //api
+  private baseUrl = 'https://node-tutorials-api.herokuapp.com';
 
-  getAll(): Observable<Tutorial[]> {
-    return this.http.get<Tutorial[]>(baseUrl);
+  constructor() {}
+
+  async getAll(): Promise<Tutorial[]> {
+    const response = await axios.get<Tutorial[]>(this.baseUrl);
+    return response.data;
   }
 
-  get(id: any): Observable<Tutorial> {
-    return this.http.get(`${baseUrl}/${id}`);
+  async get(id: any): Promise<Tutorial> {
+    const response = await axios.get<Tutorial>(`${this.baseUrl}/${id}`);
+    return response.data;
   }
 
-  create(data: any): Observable<any> {
-    return this.http.post(baseUrl, data);
+  async create(data: any): Promise<any> {
+    const response = await axios.post(this.baseUrl, data);
+    return response.data;
   }
 
-  update(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+  async update(id: any, data: any): Promise<any> {
+    const response = await axios.put(`${this.baseUrl}/${id}`, data);
+    return response.data;
   }
 
-  delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+  async delete(id: any): Promise<any> {
+    const response = await axios.delete(`${this.baseUrl}/${id}`);
+    return response.data;
   }
 
-  deleteAll(): Observable<any> {
-    return this.http.delete(baseUrl);
+  async deleteAll(): Promise<any> {
+    const response = await axios.delete(this.baseUrl);
+    return response.data;
   }
 
-  findByTitle(title: any): Observable<Tutorial[]> {
-    return this.http.get<Tutorial[]>(`${baseUrl}?title=${title}`);
+  async findByTitle(title: any): Promise<Tutorial[]> {
+    const response = await axios.get<Tutorial[]>(`${this.baseUrl}?title=${title}`);
+    return response.data;
   }
 }

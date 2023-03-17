@@ -19,19 +19,19 @@ export class AddTutorialComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  saveTutorial(): void {
+  async saveTutorial(): Promise<void> {
     const data = {
       title: this.tutorial.title,
       description: this.tutorial.description,
     };
 
-    this.tutorialService.create(data).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.submitted = true;
-      },
-      error: (e) => console.error(e),
-    });
+    try {
+      const res = await this.tutorialService.create(data);
+      console.log(res);
+      this.submitted = true;
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   newTutorial(): void {
