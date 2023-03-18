@@ -25,6 +25,7 @@ export class TutorialsListComponent implements OnInit {
       this.loadingItem = true;
       const data = await this.tutorialService.getAll();
       this.tutorials = data;
+      console.log(this.tutorials);
       this.loadingItem = false;
     } catch (e) {
       this.loadingItem = false;

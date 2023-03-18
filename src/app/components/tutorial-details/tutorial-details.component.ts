@@ -39,6 +39,7 @@ export class TutorialDetailsComponent implements OnInit {
       const data = await this.tutorialService.get(id);
       if (data) {
         this.currentTutorial = data;
+        console.log(this.currentTutorial);
       }
       this.loadingCurrentEdit = false;
     } catch (e) {
