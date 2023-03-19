@@ -29,6 +29,11 @@ export class AddTutorialComponent implements OnInit {
       const res = await this.tutorialService.create(data);
       console.log(res);
       this.submitted = true;
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
     } catch (e) {
       console.error(e);
     }
