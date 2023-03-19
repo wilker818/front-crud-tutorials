@@ -29,6 +29,12 @@
 </div>
 
 <ng-template #editable>
+  <div class="cni-back-page">
+    <a routerLink="/">
+      <i class="bi bi-box-arrow-in-left"></i>
+      <span>Back to home</span>
+    </a>
+  </div>
   <div *ngIf="currentTutorial.id" class="cni-tutorials-edit">
     <h4>Tutorial</h4>
     <form class="cni-tutorials-edit__form">
@@ -141,7 +147,7 @@
     *ngIf="!currentTutorial.id && !loadingCurrentEdit"
     class="w-100 d-flex flex-column align-items-center"
   >
-  <br />
+    <br />
     <h4>Sorry we don't have this tutorial available yet :(</h4>
   </div>
 </ng-template>

@@ -12,3 +12,22 @@ body {
   color: #fff;
   min-height: 100vh;
 }
+
+.cni-back-page {
+  display: flex;
+  align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+
+    color: #fff !important;
+    font-size: 20px;
+    text-decoration: none;
+
+    i {
+      font-size: 24px;
+    }
+  }
+
+}
