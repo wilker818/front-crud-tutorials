@@ -17,7 +17,7 @@
 Now with the Docker implemented we can run locally dynamically and pulling the backend Docker image from API-TUTORIALS and running the project dynamically without having to download the back end, inside the project terminal run this command: `NODE_ENV=development docker compose up --build `
 after building the image enter the link: `http://localhost:8080/tutorials`, to access the Front-end, to access the Mongo Express: `http://localhost:9090/`, to access the Swagger docs of the API: `http ://localhost:5000/docs/`.
 <br /><br />
-Now if you only need to run the Front-end without Docker, just issue the command: `npm run dev`.
+Now if you only need to run the Front-end without Docker, just issue the command: `npm run dev` and execute Back-end API `http://localhost:5000/`, access this repository link: `https://github.com/wilker818/api-crud-tutorials`.
 <br /><br />
 Front-end production project link: `https://crud-tutorials.herokuapp.com/tutorials`.
 
