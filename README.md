@@ -34,5 +34,5 @@ Now with the Docker implemented we can run it locally dynamically, but if you wa
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/front-crud-tutorials` directory.
 
