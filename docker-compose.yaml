@@ -1,0 +1,68 @@
+version: "3"
+
+services:
+  tutorials-db:
+    image: mongo
+    restart: always
+    networks:
+      - internal-network
+    volumes:
+      - mongo_db:/data/db
+      - ./mongo-init/init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: cni-root
+      MONGO_INITDB_ROOT_PASSWORD: 8ltKz7E2iqr7
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 9090:8081
+    networks:
+      - internal-network
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: cni-root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 8ltKz7E2iqr7
+      ME_CONFIG_MONGODB_URL: mongodb://cni-root:8ltKz7E2iqr7@tutorials-db:27017/
+    depends_on:
+      - "tutorials-db"
+
+  tutorials-api:
+    image: wilker818/tutorials-api
+    restart: always
+    container_name: tutorials-api
+    environment:
+      PORT: 5000
+      CONNECT_MONGO_URL: "mongodb://cni-tutorials:4G87od7Gc4Ni@tutorials-db:27017/tutorials"
+    ports:
+      - "5000:5000"
+    networks:
+      - internal-network
+    depends_on:
+      - "tutorials-db"
+
+  tutorials-front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NODE_ENV=${NODE_ENV}
+    image: wilker818/tutorials-front
+    restart: always
+    container_name: tutorials-front
+    environment:
+      PORT: 8080
+    ports:
+      - "8080:8080"
+    networks:
+      - internal-network
+    depends_on:
+      - "tutorials-api"
+
+networks:
+  internal-network:
+    driver: bridge
+
+volumes:
+  mongo_db:
+    driver: local

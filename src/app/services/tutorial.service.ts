@@ -1,50 +1,58 @@
 import { Injectable } from '@angular/core';
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
+import { environment } from '../../environments/environment';
 import { Tutorial } from '../models/tutorial.model';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TutorialService {
   //api
-  private baseUrl = 'https://node-tutorials-api.herokuapp.com';
+  private baseUrl = environment.apiUrl;
+  private axiosInstance: AxiosInstance;
 
-  constructor() {}
+  constructor() {
+    this.axiosInstance = axios.create({
+      baseURL: `${this.baseUrl}/tutorials`,
+      timeout: 1000,
+    });
+  }
 
   async getAll(): Promise<Tutorial[]> {
-    const response = await axios.get<Tutorial[]>(this.baseUrl);
+    const response = await this.axiosInstance.get<Tutorial[]>('');
     return response.data;
   }
 
   async get(id: any): Promise<Tutorial> {
-    const response = await axios.get<Tutorial>(`${this.baseUrl}/${id}`);
+    const response = await this.axiosInstance.get<Tutorial>(`/${id}`);
     return response.data;
   }
 
   async create(data: any): Promise<any> {
-    const response = await axios.post(this.baseUrl, data);
+    const response = await this.axiosInstance.post('', data);
     return response.data;
   }
 
   async update(id: any, data: any): Promise<any> {
-    const response = await axios.put(`${this.baseUrl}/${id}`, data);
+    const response = await this.axiosInstance.put(`/${id}`, data);
     return response.data;
   }
 
   async delete(id: any): Promise<any> {
-    const response = await axios.delete(`${this.baseUrl}/${id}`);
+    const response = await this.axiosInstance.delete(`/${id}`);
     return response.data;
   }
 
   async deleteAll(): Promise<any> {
-    const response = await axios.delete(this.baseUrl);
+    const response = await this.axiosInstance.delete('');
     return response.data;
   }
 
   async findByTitle(title: any): Promise<Tutorial[]> {
-    const response = await axios.get<Tutorial[]>(`${this.baseUrl}?title=${title}`);
+    const response = await this.axiosInstance.get<Tutorial[]>(
+      `?title=${title}`
+    );
     return response.data;
   }
 }
