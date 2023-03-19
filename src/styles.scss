@@ -29,5 +29,10 @@ body {
       font-size: 24px;
     }
   }
+}
 
+.cni-break-word {
+  overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

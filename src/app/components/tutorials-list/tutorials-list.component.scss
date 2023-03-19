@@ -68,9 +68,8 @@
           cursor: pointer;
 
           background-color: #fff;
-          border-radius: 8px;
-
-          padding: 8px 16px;
+          height: 52px;
+          padding: 16px 20px;
           margin-bottom: $margin-bottom--1;
 
           span{
@@ -101,5 +100,21 @@
 
     padding: 8px 16px;
     margin-top: $margin-top--2;
+  }
+}
+.cni-tutorials-details {
+  &__list {
+    display: block;
+
+    margin-bottom: $margin-bottom--2;
+  }
+
+  &__button-edit {
+    @include button-primary($gradient--background-4, #009874, $shadow: 0px 1px 15px rgba(0, 152, 116, 0.6));
+
+    font-weight: 700;
+    font-size: 20px;
+
+    padding: 8px 16px;
   }
 }
