@@ -72,13 +72,6 @@
                   </a>
                 </div>
 
-                <button
-                  *ngIf="tutorials?.length && tutorials.length > 6"
-                  class="cni-tutorials__button-remove"
-                  (click)="removeAllTutorials()"
-                >
-                  Remove All
-                </button>
                 <div *ngIf="!currentTutorial">
                   <br />
                   <p>Please click on a Tutorial...</p>
@@ -88,6 +81,13 @@
           </div>
         </div>
       </div>
+      <button
+        *ngIf="tutorials?.length && tutorials.length > 6"
+        class="cni-tutorials__button-remove"
+        (click)="removeAllTutorials()"
+      >
+        Remove All
+      </button>
     </div>
   </div>
 </div>
